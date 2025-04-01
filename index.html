@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCE Connect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <style>
+        /* Enhanced Hero section */
+        .hero-section {
+            position: relative;
+            min-height: 80vh;
+            background: linear-gradient(rgba(27, 48, 88, 0.8), rgba(27, 48, 88, 0.9)),
+                        url('./images/college-campus.jpg') center/cover fixed;
+            display: flex;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('./images/pattern.png');
+            opacity: 0.1;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Enhanced Event Cards */
+        .event-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .event-card .card-body {
+            padding: 1.5rem;
+        }
+
+        .event-card .card-img-top {
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            color: #6c757d;
+        }
+
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .event-card .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-card .card-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        /* Enhanced Section Headers */
+        .section-header {
+            text-align: left;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            color: #1B3058;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #1B3058 0%, #3454a1 100%);
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            position: relative;
+            padding: 5rem 0;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                rgba(27, 48, 88, 0) 0%,
+                rgba(27, 48, 88, 0.2) 25%,
+                rgba(27, 48, 88, 0.2) 75%,
+                rgba(27, 48, 88, 0) 100%
+            );
+        }
+
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: 2px solid rgba(27, 48, 88, 0.2);
+            border-radius: 50%;
+        }
+
+        /* Section Backgrounds */
+        .events-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .clubs-section {
+            background: white;
+        }
+
+        .organize-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        /* Enhanced Club Cards */
+        .club-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .club-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .club-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .club-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .club-card a:hover {
+            text-decoration: none;
+        }
+
+        .club-card h5 {
+            color: #1B3058;
+            margin-bottom: 0;
+        }
+
+        /* Floating Shapes Animation */
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        /* Organize Events Section */
+        .organize-section {
+            padding: 4rem 0;
+            margin: 3rem 0;
+            border-radius: 20px;
+        }
+
+        .organize-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .organize-icon {
+            font-size: 3rem;
+            color: #1B3058;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Swiper pagination positioning */
+        .swiper-pagination {
+            position: relative;
+            bottom: -20px !important; /* Move dots down */
+            margin-top: 30px; /* Add space above dots */
+        }
+
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #1B3058;
+            opacity: 0.3;
+            margin: 0 5px !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #1B3058;
+        }
+
+        /* Adjust container padding to accommodate new dot position */
+        .clubs-section {
+            padding-bottom: 60px; /* Increased padding to prevent cut-off */
+        }
+
+        .swiper-container {
+            padding-bottom: 40px; /* Add space for pagination */
+        }
+
+        .swiper {
+            width: 100%;
+            padding: 2rem 0 4rem 0; /* Added bottom padding */
+        }
+
+        .swiper-pagination {
+            position: absolute;
+            bottom: 0 !important; /* Changed from relative to absolute */
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #1B3058;
+            opacity: 0.3;
+            margin: 0 5px !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #1B3058;
+        }
+
+        /* Updated section header styles */
+        .section-header {
+            text-align: left;
+        }
+
+        .section-header h2 {
+            color: #1B3058;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #1B3058 0%, #3454a1 100%);
+        }
+
+        /* Button styles */
+        .btn-outline-primary {
+            border-color: #1B3058;
+            color: #1B3058;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #1B3058;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* Swiper container adjustments */
+        .swiper {
+            padding: 2rem 0 4rem 0;
+            margin-top: 1rem;
+        }
+
+        /* Update these styles */
+        .header-line {
+            height: 4px;
+            background: linear-gradient(90deg, #1B3058 0%, #3454a1 100%);
+            width: 100%;
+        }
+
+        h2.display-6 {
+            margin-top: 0; /* Remove any top margin */
+            line-height: 1.2; /* Adjust line height if needed */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- navbar -->
+    <div class="taskbar">
+        <nav class="navbar navbar-expand-lg" style="background-color: #1B3058;">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" href="#">
+                    <img src="./images/logo.png" alt="Logo" width="35" height="30" class="d-inline-block align-text-top">
+                    PCE Connect
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link active text-white" aria-current="page" href="./authenticate/choice.html">Home</a>
+                        <a class="nav-link text-white" href="./about.html">About</a>
+                        <a class="nav-link text-white" href="./help.html">Help</a>
+                        <a class="nav-link text-white" href="./authenticate/choice.html">Login</a>
+                        <a class="nav-link text-white" href="./authenticate/choice.html">Signup</a>
+                    </div>
+                </div>
+              </div>
+        </nav>
+    </div>
+    
+    <!-- hero -->
+    <div class="hero-section">
+        <div class="floating-shapes">
+            <!-- Add floating shapes dynamically with JavaScript -->
+        </div>
+        <div class="container hero-content text-center" data-aos="fade-up">
+            <h1 class="display-2 fw-bold mb-4">UNITE ENGAGE THRIVE!</h1>
+            <p class="lead mb-4 fs-3">Your central hub for all campus activities. Join clubs, attend events, and stay connected with your college community.</p>
+            <div class="d-flex justify-content-center gap-4 mt-5">
+                <a href="./authenticate/choice.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+                    Get Started
+                    <i class="bi bi-arrow-right-circle ms-2"></i>
+                </a>
+                <a href="./explore-events.html" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">
+                    Explore
+                    <i class="bi bi-compass ms-2"></i>
+                </a>
+        </div>
+        </div>
+    </div>
+
+    <!-- upcoming events -->
+    <div class="section-divider events-section">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="display-6 fw-bold mb-2">Upcoming Events</h2>
+                    <p class="text-muted mb-0 pt-2">Stay connected with the latest happenings and activities</p>
+                </div>
+                <a href="./explore-events.html" class="btn btn-outline-primary rounded-pill px-4">
+                    Explore More
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+            <div class="row g-5">
+                <!-- Event Card -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="event-card">
+                        <img src="./images/auditorium.jpg" class="card-img-top" alt="Tech Conference">
+                        <div class="card-body">
+                                <h5 class="card-title fw-bold">Tech Conference 2025</h5>
+                                <div class="event-meta">
+                                    <div class="event-meta-item">
+                                        <i class="bi bi-calendar3"></i>
+                                        <span>March 25, 2025</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span>10:00 AM - 4:00 PM</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <span>VENUE : Main Auditorium</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Join us for an exciting and informative tech conference featuring industry experts and innovative discussions. Learn about the latest technologies and network with professionals by learning through hands on Project.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="#" class="btn btn-primary rounded-pill px-4">
+                                        <i class="bi bi-ticket-perforated me-2"></i>Register
+                                    </a>
+                                    <a href="#" class="btn btn-outline-secondary rounded-pill">
+                                        <i class="bi bi-info-circle me-2"></i>Details
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event card -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="event-card">
+                        <img src="./images/alegria.jpeg" class="card-img-top" alt="Cultural Night">
+                        <div class="card-body">
+                                <h5 class="card-title fw-bold">Cultural Night</h5>
+                                <div class="event-meta">
+                                    <div class="event-meta-item">
+                                        <i class="bi bi-calendar3"></i>
+                                        <span>March 30, 2025</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span>06:00 PM - 09:00 PM</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <span>VENUE : QUAD</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Join us for an exciting cultural night featuring performances that celebrate our diverse community. Enjoy a night filled with music, dance, and cultural showcases that bring our campus together.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="#" class="btn btn-primary rounded-pill px-4">
+                                        <i class="bi bi-ticket-perforated me-2"></i>Register
+                                    </a>
+                                    <a href="#" class="btn btn-outline-secondary rounded-pill">
+                                        <i class="bi bi-info-circle me-2"></i>Details
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event Card -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="event-card">
+                        <img src="./images/ai.png" class="card-img-top" alt="Cultural Night">
+                        <div class="card-body">
+                                <h5 class="card-title fw-bold">Workshop on AI</h5>
+                                <div class="event-meta">
+                                    <div class="event-meta-item">
+                                        <i class="bi bi-calendar3"></i>
+                                        <span>April 5, 2025</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span>10:00 AM - 02:00 PM</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <span>VENUE : Lab</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Join us for an informative workshop on AI, where you will learn about the latest advancements and applications in the field. Don't miss this opportunity to enhance your knowledge and skills.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="#" class="btn btn-primary rounded-pill px-4">
+                                        <i class="bi bi-ticket-perforated me-2"></i>Register
+                                    </a>
+                                    <a href="#" class="btn btn-outline-secondary rounded-pill">
+                                        <i class="bi bi-info-circle me-2"></i>Details
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Clubs and Committees -->
+    <div class="section-divider clubs-section">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="display-6 fw-bold mb-2">Clubs & Committees</h2>
+                    <p class="text-muted mb-0 pt-2">Join our diverse community of student organizations</p>
+                </div>
+                <a href="./clubs.html" class="btn btn-outline-primary rounded-pill px-4">
+                    Explore More
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+
+            <div class="swiper clubsSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href="https://csi.pce.ac.in/">
+                                        <img src="./images/clubsLogo/csi.jpg" alt="CSI-PCE">
+                                        <h5>CSI-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href="https://gdgpce.vercel.app/">
+                                        <img src="./images/clubsLogo/gdg.jpg" alt="GDG-PCE">
+                                        <h5>GDG-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href="https://www.pce.ac.in/students/student-activities/student-associations/nss/">
+                                        <img src="./images/clubsLogo/nss.jpg" alt="NSS-PCE">
+                                        <h5>NSS-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href="https://www.ieee.pce.ac.in/">
+                                        <img src="./images/clubsLogo/ieee.png" alt="IEEE-PCE">
+                                        <h5>IEEE-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href="https://www.swe.pce.ac.in/">
+                                        <img src="./images/clubsLogo/SWE.png" alt="SWE-PCE">
+                                        <h5>SWE-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href="https://tpc.pce.ac.in/">
+                                        <img src="./images/clubsLogo/tpc.png" alt="TPC-PCE">
+                                        <h5>TPC-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href="https://www.pce.ac.in/students/student-activities/student-associations/tapas/">
+                                    <img src="./images/clubsLogo/tapas-pce.jpg" alt="TAPAS-PCE">
+                                    <h5>TAPAS-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <img src="./images/clubsLogo/student-council.jpg" alt="Student Council">
+                                    <h5>Student Council</h5>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href=#>
+                                        <img src="./images/clubsLogo/icell.png" alt="Innovation Cell">
+                                        <h5>Innovation Cell</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href = "https://sites.google.com/mes.ac.in/aesamesapce/home">
+                                        <img src="./images/clubsLogo/aesa.jpg" alt="AESA">
+                                        <h5>AESA</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href = "https://sites.google.com/mes.ac.in/aesamesapce/home">
+                                        <img src="./images/clubsLogo/mesa.jpg" alt="AESA">
+                                        <h5>MESA</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href=#>
+                                        <img src="./images/clubsLogo/iete.jpg" alt="IETE">
+                                        <h5>IETE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href="https://www.pce.ac.in/students/student-activities/student-associations/nature-club/">
+                                        <img src="./images/clubsLogo/Nature-Club.jpg" alt="Nature Club">
+                                        <h5>Nature Club</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href=#>
+                                        <img src="./images/clubsLogo/guftagoo.jpg" alt="Guftagoo">
+                                        <h5>Guftagoo</h5>
+                                    </a>
+                                </div>
+                            </div>
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href=#>
+                                        <img src="./images/clubsLogo/recross.jpg" alt="Recross">
+                                        <h5>Recross</h5>
+                                    </a>
+                                </div>
+                            </div>]
+                    <div class="swiper-slide">
+                                <div class="club-card">
+                                    <a href=#>
+                                        <img src="./images/clubsLogo/rangmanch.jpg" alt="Rangmanch">
+                                        <h5>Rangmanch</h5>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Head Section -->
+    <div class="section-divider organize-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="display-6 fw-bold">Organize Events</h2>
+                <p class="text-muted">Take control of your club's events and engage with your community effectively</p>
+            </div>
+            <div class="feature-list">
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                    <i class="bi bi-calendar2-plus mb-3 text-primary fs-4"></i>
+                    <h5>Create Events</h5>
+                    <p>Easily create and publish events for your club</p>
+                </div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                    <i class="bi bi-people mb-3 text-primary fs-4"></i>
+                    <h5>Manage Registrations</h5>
+                    <p>Track and manage event participants</p>
+                </div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                    <i class="bi bi-graph-up mb-3 text-primary fs-4"></i>
+                    <h5>Analytics</h5>
+                    <p>Get insights about your events and attendance</p>
+        </div>
+    </div>
+
+            <div class="mt-5">
+                <a href="./club_head.html" class="btn btn-primary btn-lg rounded-pill px-5">
+                    <i class="bi bi-arrow-right-circle me-2"></i>
+                    Go to Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="text-white mb-4">Quick Links</h3>
+                    <div class="d-flex flex-column">
+                        <a class="text-white mb-2" href="./home.html">Home</a>
+                        <a class="text-white mb-2" href="./about.html">About Us</a>
+                        <a class="text-white mb-2" href="./help.html">Help</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="text-white mb-4">Team</h3>
+                    <div class="d-flex flex-column justify-content-start">
+                        <p class="text-white mb-2">Nancy</p>
+                        <p class="text-white mb-2">Shalmali</p>
+                        <p class="text-white mb-2">Saniya</p>
+                        <p class="text-white mb-2">Raina</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="text-white mb-4">Get In Touch</h3>
+                    <p class="mb-2"><i class="bi bi-geo-alt-fill text-white me-2"></i>Pillai College of Engineering, Sector 16, New Panvel</p>
+                    <p class="mb-2"><i class="bi bi-envelope-fill text-white me-2"></i>pceconnect@mes.ac.in</p>
+                    <p class="mb-0"><i class="bi bi-telephone-fill text-white me-2"></i>+91 1234567890</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row mt-4 p-1">
+                <div class="col-12">
+                    <p>&copy; 2025 PCE Connect. All rights reserved.</p>
+                    <p>Mahatma Education Society's Pillai College of Engineering</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Initialize Swiper
+        const swiper = new Swiper('.clubsSwiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+            }
+        });
+
+        // Create floating shapes
+        function createFloatingShapes() {
+            const shapes = document.querySelector('.floating-shapes');
+            for (let i = 0; i < 15; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+                shape.style.width = `${Math.random() * 50 + 20}px`;
+                shape.style.height = shape.style.width;
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+                shapes.appendChild(shape);
+            }
+        }
+
+        // Call the function when the page loads
+        window.addEventListener('load', createFloatingShapes);
+
+        // Add subtle rotation animation to section divider dots
+        document.querySelectorAll('.section-divider').forEach(divider => {
+            divider.addEventListener('mouseenter', () => {
+                const dot = divider.querySelector('::after');
+                if (dot) {
+                    dot.style.transform = 'translateX(-50%) rotate(180deg)';
+                }
+            });
+            
+            divider.addEventListener('mouseleave', () => {
+                const dot = divider.querySelector('::after');
+                if (dot) {
+                    dot.style.transform = 'translateX(-50%) rotate(0deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

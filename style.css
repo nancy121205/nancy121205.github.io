@@ -1,0 +1,129 @@
+/* Navbar styles */
+.navbar-toggler {
+    border-color: white;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    filter: invert(1);
+}
+
+/* Club card styles */
+.club-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.club-card:hover {
+    transform: translateY(-5px);
+}
+
+.club-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.club-card h5 {
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Carousel styles */
+.carousel-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Footer styles */
+footer {
+    background-color: #1B3058;
+    color: white;
+    padding: 20px 0;
+}
+
+footer a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #f8f9fa !important;
+}
+
+/* Event card styles */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge styles */
+.badge {
+    padding: 8px 12px;
+    font-weight: 500;
+}
+
+/* Button styles */
+.btn {
+    padding: 8px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Form styles */
+.form-control {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(27, 48, 88, 0.25);
+    border-color: #1B3058;
+}
+
+/* Custom utility classes */
+.text-primary {
+    color: #1B3058 !important;
+}
+
+.bg-primary {
+    background-color: #1B3058 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .club-card {
+        margin-bottom: 20px;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
+    }
+}

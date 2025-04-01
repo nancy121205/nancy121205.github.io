@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PCE Connect - Home</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (for icons in navbar) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <style>
+        .carousel-item {
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Improves text visibility over images */
+        .carousel-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            border-radius: 0;
+        }
+
+        /* Background color for calendar section */
+        .calendar-layout {
+            background-color: #f8f9fa; /* Light grey background color */
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #6c757d; /* Dark grey border */
+            color: #343a40; /* Dark grey text color */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- navbar -->
+    <div class="taskbar">
+        <nav class="navbar navbar-expand-lg" style="background-color: #1B3058;">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" href="#">
+                    <img src="./images/logo.png" alt="Logo" width="35" height="30" class="d-inline-block align-text-top">
+                    PCE Connect
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link active text-white" aria-current="page" href="./home_page.html">Home</a>
+                        <a class="nav-link text-white" href="./about.html">About</a>
+                        <a class="nav-link text-white" href="./help.html">Help</a>
+                    </div>
+                </div>
+              </div>
+        </nav>
+    </div>
+
+    <!-- Bootstrap Carousel (Hero Banner) -->
+    <div id="heroCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+        
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- Carousel Inner -->
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('./images/carousel/explore.avif');">
+                <div class="carousel-caption">
+                    <h2>Welcome to PCE Connect</h2>
+                    <p>Discover clubs, events, and opportunities!</p>
+                    <a href="./explore-events.html" class="btn btn-primary">Explore Now</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('./images/carousel/event.avif');">
+                <div class="carousel-caption">
+                    <h2>Join Exciting Events</h2>
+                    <p>Stay updated with the latest college activities.</p>
+                    <a href="./explore-events.html" class="btn btn-success">View Events</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('./images/carousel/grow.avif');">
+                <div class="carousel-caption">
+                    <h2>Be Part of a Club</h2>
+                    <p>Connect with like-minded students and grow together.</p>
+                    <a href="./clubs.html   " class="btn btn-warning">Find a Club</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <!-- upcoming events -->
+    <div class="container-fluid  pt-5 border-bottom" id="custom-cards">
+        <div class="container px-0">
+        <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+            <h2>Upcoming Events</h2>
+            <a href="./explore-events.html" class="btn btn-light">Explore</a>
+        </div>
+        
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/auditorium.jpg" class="card-img-top" alt="Tech Conference">
+                    <div class="card-body">
+                        <h5 class="card-title">Tech Conference</h5>
+                        <p class="card-text">Join us for an exciting and informative tech conference featuring industry experts and innovative discussions. Learn about the latest technologies and network with professionals by learning through hands on Project.</p>
+                        <p class="card-text mb-1"><small class="text-muted">Date: March 25, 2025</small></p>
+                        <p class="card-text"><small class="text-muted">Time: 10:00 AM - 4:00 PM</small></p>
+                        <a href="#" class="btn btn-primary">Register</a>
+                        <a href="#" class="btn btn-secondary">More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/traditional-day.jpg" class="card-img-top" alt="Traditional day">
+                    <div class="card-body">
+                      <h5 class="card-title">Traditional day</h5>
+                      <p class="card-text">Celebrate diversity through traditional attire, food, and cultural performances.</p>
+                        <p class="card-text mb-1"><small class="text-muted">Date: March 25, 2025</small></p>
+                        <p class="card-text"><small class="text-muted">Time: 10:00 AM - 4:00 PM</small></p>
+                        <a href="#" class="btn btn-primary">Register</a>
+                        <a href="#" class="btn btn-secondary">More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/sports.jpeg" class="card-img-top" alt="Sports Day">
+                    <div class="card-body">
+                      <h5 class="card-title">Sports Day</h5>
+                      <p class="card-text">Join us for a day of friendly competition and teamwork in various sports.</p>
+                        <p class="card-text mb-1"><small class="text-muted">Date: March 25, 2025</small></p>
+                        <p class="card-text"><small class="text-muted">Time: 10:00 AM - 4:00 PM</small></p>
+                        <a href="#" class="btn btn-primary">Register</a>
+                        <a href="#" class="btn btn-secondary">More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Event Calendar -->
+    <div class="container-fluid py-3 border-bottom" id="event-calendar">
+        <div class="container px-0">
+            <h2 class="pb-2 border-bottom">Event Calendar</h2>
+            <div class="calendar-layout mt-4">
+                <!-- Google Calendar Embed -->
+                <iframe 
+                    src="https://calendar.google.com/calendar/embed?src=c_a26c54aecbd648a449533cab3f418ea37b37db6be3e0a96a4d906be1d02efcab%40group.calendar.google.com&ctz=Asia%2FKolkata" 
+                    style="border: 0" 
+                    width="100%" 
+                    height="600" 
+                    frameborder="0" 
+                    scrolling="no">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clubs and Committees -->
+    <div class="container px-4 py-5" id="icon-grid">
+        <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+            <h2>Clubs and Committees</h2>
+            <a href="./clubs.html" class="btn btn-light">Explore</a>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-center position-relative">
+            <!-- Back Button (Left) -->
+            <button class="carousel-control-prev position-absolute start-0 translate-middle-y" type="button" data-bs-target="#clubCarousel" data-bs-slide="prev" style="z-index: 10; background: rgba(0, 0, 0, 0.5); width: 30px; height: 30px; border-radius: 50%; top: 50%;">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <div id="clubCarousel" class="carousel slide w-100" data-bs-ride="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row row-cols-1 row-cols-md-4 g-4 py-5">
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href="https://csi.pce.ac.in/">
+                                        <img src="./images/clubsLogo/csi.jpg" alt="CSI-PCE">
+                                        <h5>CSI-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href="https://gdgpce.vercel.app/">
+                                        <img src="./images/clubsLogo/gdg.jpg" alt="GDG-PCE">
+                                        <h5>GDG-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href="https://www.pce.ac.in/students/student-activities/student-associations/nss/">
+                                        <img src="./images/clubsLogo/nss.jpg" alt="NSS-PCE">
+                                        <h5>NSS-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href="https://www.ieee.pce.ac.in/">
+                                        <img src="./images/clubsLogo/ieee.png" alt="IEEE-PCE">
+                                        <h5>IEEE-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row row-cols-1 row-cols-md-4 g-4 py-5">
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href="https://www.swe.pce.ac.in/">
+                                        <img src="./images/clubsLogo/SWE.png" alt="SWE-PCE">
+                                        <h5>SWE-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href="https://tpc.pce.ac.in/">
+                                        <img src="./images/clubsLogo/tpc.png" alt="TPC-PCE">
+                                        <h5>TPC-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href="https://www.pce.ac.in/students/student-activities/student-associations/tapas/">
+                                    <img src="./images/clubsLogo/tapas-pce.jpg" alt="TAPAS-PCE">
+                                    <h5>TAPAS-PCE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <img src="./images/clubsLogo/student-council.jpg" alt="Student Council">
+                                    <h5>Student Council</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row row-cols-1 row-cols-md-4 g-4 py-5">
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href = "https://sites.google.com/mes.ac.in/aesamesapce/home">
+                                        <img src="./images/clubsLogo/aesa.jpg" alt="AESA">
+                                        <h5>AESA</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href = "https://sites.google.com/mes.ac.in/aesamesapce/home">
+                                        <img src="./images/clubsLogo/mesa.jpg" alt="AESA">
+                                        <h5>MESA</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href="https://www.pce.ac.in/students/student-activities/student-associations/iete/">
+                                        <img src="./images/clubsLogo/iete.jpg" alt="IETE">
+                                        <h5>IETE</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href="https://www.pce.ac.in/students/student-activities/student-associations/nature-club/">
+                                        <img src="./images/clubsLogo/Nature-Club.jpg" alt="Nature Club">
+                                        <h5>Nature Club</h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row row-cols-1 row-cols-md-4 g-4 py-5">
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href = #>
+                                        <img src="./images/clubsLogo/icell.png" alt="Innovation Cell">
+                                        <h5>Innovation Cell</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href = #>
+                                        <img src="./images/clubsLogo/guftagoo.jpg" alt="Guftagoo">
+                                        <h5>Guftagoo</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href = #>
+                                        <img src="./images/clubsLogo/recross.jpg" alt="Recross">
+                                        <h5>Recross</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="club-card">
+                                    <a href = #>
+                                        <img src="./images/clubsLogo/rangmanch.jpg" alt="Rangmanch">
+                                        <h5>Rangmanch</h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Button (Right) -->
+            <button class="carousel-control-next position-absolute end-0 translate-middle-y" type="button" data-bs-target="#clubCarousel" data-bs-slide="next" style="z-index: 10; background: rgba(0, 0, 0, 0.5); width: 30px; height: 30px; border-radius: 50%; top: 50%;">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: #1B3058; color: white; padding: 20px 0; text-align: center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="text-white mb-4">Quick Links</h3>
+                    <div class="d-flex flex-column ">
+                        <a class="text-white mb-2" href="./home.html">Home</a>
+                        <a class="text-white mb-2" href="./about.html">About Us</a>
+                        <a class="text-white mb-2" href="./help.html">Help</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="text-white mb-4">Team</h3>
+                    <div class="d-flex flex-column justify-content-start">
+                        <p class="text-white mb-2">Nancy</p>
+                        <p class="text-white mb-2">Shalmali</p>
+                        <p class="text-white mb-2">Saniya</p>
+                        <p class="text-white mb-2">Raina</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="text-white mb-4">Get In Touch</h3>
+                    <p class="mb-2"><i class="bi bi-geo-alt-fill text-white me-2"></i>Pillai College of Engineering, Sector 16, New Panvel</p>
+                    <p class="mb-2"><i class="bi bi-envelope-fill text-white me-2"></i>pceconnect@mes.ac.in</p>
+                    <p class="mb-0"><i class="bi bi-telephone-fill text-white me-2"></i>+91 1234567890</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row mt-4 p-1">
+                <div class="col-12">
+                    <p>&copy; 2025 PCE Connect. All rights reserved.</p>
+                    <p>Mahatma Education Society's Pillai College of Engineering</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
