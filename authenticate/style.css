@@ -1,0 +1,119 @@
+body {
+    min-height: 100vh;
+    background: linear-gradient(rgba(27, 48, 88, 0.95), rgba(27, 48, 88, 0.5)),
+                url('../images/bg.jpg') center/cover fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.container {
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pce-connect {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.pce-connect h1 {
+    color: #1B3058;
+    margin-bottom: 0.5rem;
+}
+
+.pce-connect p {
+    color: #666;
+}
+
+h2 {
+    color: #1B3058;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: white;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #1B3058;
+    box-shadow: 0 0 0 2px rgba(27, 48, 88, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #999;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #1B3058;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background: #2a4578;
+    transform: translateY(-2px);
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+}
+
+.signup-link a {
+    color: #1B3058;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.signup-link a:hover {
+    color: #2a4578;
+    text-decoration: underline;
+}
+
+/* Add subtle animation for form inputs */
+.form-group input:focus {
+    transform: translateY(-2px);
+}
